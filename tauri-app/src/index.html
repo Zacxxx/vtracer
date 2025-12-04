@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VTracer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div id="sidebar">
+    <h1>VTracer</h1>
+
+    <div class="control-group">
+      <h2>Preset</h2>
+      <select id="preset">
+        <option value="none">Custom</option>
+        <option value="bw">Black & White</option>
+        <option value="poster">Poster</option>
+        <option value="photo">Photo</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <h2>Mode</h2>
+      <select id="mode">
+        <option value="spline">Spline</option>
+        <option value="polygon">Polygon</option>
+        <option value="none">None</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <h2>Clustering</h2>
+      <label>Mode
+        <select id="colormode">
+          <option value="color">Color</option>
+          <option value="binary">Binary</option>
+        </select>
+      </label>
+      <label>Hierarchical
+        <select id="hierarchical">
+          <option value="stacked">Stacked</option>
+          <option value="cutout">Cutout</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="control-group">
+      <h2>Details</h2>
+      <label>Filter Speckle <span id="val-filter_speckle">4</span>
+        <input type="range" id="filter_speckle" min="0" max="128" value="4">
+      </label>
+      <label>Color Precision <span id="val-color_precision">6</span>
+        <input type="range" id="color_precision" min="1" max="8" value="6">
+      </label>
+      <label>Layer Difference <span id="val-layer_difference">16</span>
+        <input type="range" id="layer_difference" min="0" max="128" value="16">
+      </label>
+    </div>
+
+    <div class="control-group">
+      <h2>Smoothing</h2>
+      <label>Corner Threshold <span id="val-corner_threshold">60</span>
+        <input type="range" id="corner_threshold" min="0" max="180" value="60">
+      </label>
+      <label>Length Threshold <span id="val-length_threshold">4.0</span>
+        <input type="range" id="length_threshold" min="3.5" max="10" step="0.5" value="4.0">
+      </label>
+      <label>Splice Threshold <span id="val-splice_threshold">45</span>
+        <input type="range" id="splice_threshold" min="0" max="180" value="45">
+      </label>
+    </div>
+  </div>
+
+  <div id="main">
+    <div id="toolbar">
+      <button class="secondary" id="btn-open">Open Image</button>
+      <button id="btn-convert">Convert</button>
+      <button class="secondary" id="btn-save" disabled>Save SVG</button>
+    </div>
+    <div id="preview-area">
+      <div id="preview-container">
+        <!-- Image or SVG will be injected here -->
+        <div class="placeholder">
+          Drop an image or click "Open Image"
+        </div>
+      </div>
+    </div>
+    <div id="loading">
+      <div class="spinner"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
